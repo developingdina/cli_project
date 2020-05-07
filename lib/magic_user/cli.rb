@@ -4,7 +4,7 @@ class Cli
     puts " "
     puts "Welcome to the Tome of Spells, what knowledge do you seek?"
     puts " "
-    puts "Enter a spell name: "
+    puts "Enter a spell name:"
     @spell_name = gets.strip.downcase
     Api.spells_by_name(@spell_name)
   end
