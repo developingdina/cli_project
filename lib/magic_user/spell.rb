@@ -4,8 +4,10 @@ class Spell
 
 @@all = []
 
-  def initialize(name)
-    @name = name
+  def initialize(spell_name, description, range = nil)
+    @name = spell_name
+    @description = description
+    @range = range
     @@all << self
   end
 

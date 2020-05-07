@@ -4,12 +4,10 @@ class Api
 
     url = "https://www.dnd5eapi.co/api/spells/#{spell_name}"
     response = Net::HTTP.get(URI(url))
-    spell_info = JSON.parse(response)
+    spell_info_hash = JSON.parse(response)
 
-    spell_info.each do |spell_details|
-      Spell.new(name)
-    end
-        binding.pry
+      Spell.new(spell_info_hash["name"],spell_info_hash["desc"],spell_info_hash["range"])
+
   end
 #   def self.spells_by_name(spell_name)
 #     url = "http://www.dnd5eapi.co/api/spells/#{spell_name}"
