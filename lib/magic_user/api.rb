@@ -10,7 +10,7 @@ class Api
     ######how do I make spell objs from that data
   # end
 
-  def self.spells_by_klass(klass_number)
+  def self.spells_by_name(spell_name)
     url = "https://www.dnd5eapi.co/api/spellcasting/#{klass_number}"
     response = Net::HTTP.get(URI(url))
 binding.pry
