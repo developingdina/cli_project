@@ -6,7 +6,11 @@ class Api
     response = Net::HTTP.get(URI(url))
     spell_info_hash = JSON.parse(response)
 
-      Spell.new(spell_info_hash["name"],spell_info_hash["desc"],spell_info_hash["range"])
+    name = spell_info_hash["name"]
+    desc = spell_info_hash["desc"]
+    range = spell_info_hash["range"]
+
+        Spell.new(name: name, description: desc,range: range )
 
   end
 #   def self.spells_by_name(spell_name)
