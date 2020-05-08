@@ -16,11 +16,13 @@ class Cli
         end
       else
         puts "You are not worthy of the Power within"
+        ##exits CLI
       end
-    # @spell_name = gets.strip.downcase
-    # Api.spell(@spell_name)
-    #binding.pry
-
+      @spell_num = gets.strip.to_i
+      Api.spell_info_call(@spell_num)
+    ##how to take integer input and connect it to spell obj
+    ##how to use spell obj to make api calls
+    ##how to return that info and display it
   end
 
 
