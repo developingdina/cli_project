@@ -1,13 +1,14 @@
 class Spell
-  attr_accessor :name, :description, :range
+  attr_accessor :name, :index, :description, :range
 
 
 @@all = []
 
-  def initialize(name:, description:, range:)
+  def initialize(name, index)
     @name = name
-    @description = description
-    @range = range
+    @index = index
+    # @description = description
+    # @range = range
     @@all << self
   end
 
