@@ -8,13 +8,25 @@ class Api
 
     # name = spell_info["name"]
     spell_info.each do |spell_list|
-    Spell.new(spell_list["name"], spell_list["index"])
+    Spell.new(name: spell_list["name"],index: spell_list["index"])
   end
   #binding.pry
   end
 
-  def self.spell_info_call(spell_num)
-    
+##Api.spell_info_call(spell)
+  def self.spell_info_call(spell) ##spell object
+    ##spell_num = spell in Spell.all
+    ##spell.index
+    url = "https://www.dnd5eapi.co/api/spells/#{spell.index}"
+    response = Net::HTTP.get(URI(url))
+    spell_details = JSON.parse(response)
+
+    spell.description = spell_details["desc"]
+    spell.range = spell_details["range"]
+    spell.components = spell_details["components"]
+    spell.duration = spell_details["duration"]
+
+    binding.pry
   end
   # def self.spells(spell_name)
   #
