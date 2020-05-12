@@ -8,12 +8,12 @@ class Cli
     puts " "
     puts "Is it Magic you seek: y or n"
     @input = gets.strip.downcase
-    orig_input(@input)
-    prompt_user
+#
+    prompt_user if orig_input(@input)
     prompt_input = gets.strip.downcase
 
       while prompt_input != "exit"
-        if prompt_input.to_i > 0 && prompt_input.to_i < Spell.all.length
+        if prompt_input.to_i > 0 && prompt_input.to_i <= Spell.all.length
           spell = Spell.all[prompt_input.to_i - 1]
           Api.spell_info_call(spell)
           print_spell(spell)
@@ -25,13 +25,14 @@ class Cli
         prompt_user
         prompt_input = gets.strip.downcase
       end
-      puts "~The book vanishes as you close it leaving you feeling stronger in the magical arts~"
-  end
+      puts "(The book vanishes as you close it leaving you feeling stronger in the magical arts.)"
+
+    end
 
 
 
-  def orig_input(input)
-    if input == ("y" || "yes") && (input != "n"|| "no")
+    def orig_input(input)
+    if input == "y" || input == "yes"
       puts " "
       puts "Very well....here are all the spells of this Universe:"
       sleep 3
@@ -41,30 +42,30 @@ class Cli
         puts "#{index}. #{spell.name}"
       end
     else
-      puts "You are not worthy of this Power"
-      ##exits CLI
+       puts "(The Tome vanishes)"
+       exit
     end
-  end
+    end
 
 
 
-  def prompt_user
+    def prompt_user
     puts " "
     puts "Enter a number to learn more about a spell; type list to see the list again, or type exit to close the Tome: "
     puts " "
-  end
+    end
 
 
 
-  def print_spell(spell)
+    def print_spell(spell)
     puts "Name: #{spell.name}"
     puts " "
-    puts "#{spell.description}"
+    puts "Description: #{spell.description}"
     puts " "
     puts "Range: #{spell.range}"
     puts " "
     puts "Components: #{spell.components}"
-  end
+    end
 
 
-end
+    end
