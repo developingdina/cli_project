@@ -26,7 +26,7 @@ class Api
     spell.components = spell_details["components"]
     spell.duration = spell_details["duration"]
 
-    binding.pry
+    #binding.pry
   end
   # def self.spells(spell_name)
   #

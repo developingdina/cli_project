@@ -16,6 +16,7 @@ class Cli
         if prompt_input.to_i > 0 && prompt_input.to_i < Spell.all.length
           spell = Spell.all[prompt_input.to_i - 1]
           Api.spell_info_call(spell)
+          print_spells(spell)
         # elsif prompt_input == "number"
 
         #   ##return information
@@ -55,4 +56,9 @@ class Cli
     puts " "
   end
 
+  def print_spell(spell)
+    puts "#{spell.name}"
+    puts "#{spell.description}"
+    puts "#{spell.range}"
+  end
 end
