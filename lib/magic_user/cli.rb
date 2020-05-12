@@ -18,54 +18,56 @@ class Cli
           Api.spell_info_call(spell)
           print_spell(spell)
         elsif prompt_input == "list"
-          orig_input(@input)
+          Spell.all.each.with_index(1) do |spell, index|
+            puts "#{index}. #{spell.name}"
+          end
         else
           puts "I do not understand...try again"
         end
         prompt_user
         prompt_input = gets.strip.downcase
       end
-      puts "(The book vanishes as you close it leaving you feeling stronger in the magical arts.)"
+      puts "(As you close the Tome it vanishes leaving you feeling more powerful.)"
 
     end
 
 
 
     def orig_input(input)
-    if input == "y" || input == "yes"
-      puts " "
-      puts "Very well....here are all the spells of this Universe:"
-      sleep 3
-      Api.spell_get_call
-      puts " "
-      Spell.all.each.with_index(1) do |spell, index|
-        puts "#{index}. #{spell.name}"
-      end
-    else
-       puts "(The Tome vanishes)"
-       exit
-    end
+      if input == "y" || input == "yes"
+          puts " "
+          puts "Very well....here are all the spells of this Universe:"
+          sleep 3
+          Api.spell_get_call
+          puts " "
+          Spell.all.each.with_index(1) do |spell, index|
+            puts "#{index}. #{spell.name}"
+          end
+      else
+          puts "(The Tome vanishes)"
+          exit
+        end
     end
 
 
 
     def prompt_user
-    puts " "
-    puts "Enter a number to learn more about a spell; type list to see the list again, or type exit to close the Tome: "
-    puts " "
+        puts " "
+        puts "Enter a 'number' to learn more about a spell; type 'list' to see the list again, or type 'exit' to close the Tome: "
+        puts " "
     end
 
 
 
     def print_spell(spell)
-    puts "Name: #{spell.name}"
-    puts " "
-    puts "Description: #{spell.description}"
-    puts " "
-    puts "Range: #{spell.range}"
-    puts " "
-    puts "Components: #{spell.components}"
+        puts "Name: #{spell.name}"
+        puts " "
+        puts "Description: #{spell.description}"
+        puts " "
+        puts "Range: #{spell.range}"
+        puts " "
+        puts "Components: #{spell.components}"
     end
 
 
-    end
+end
