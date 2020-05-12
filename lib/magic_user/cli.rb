@@ -16,11 +16,9 @@ class Cli
         if prompt_input.to_i > 0 && prompt_input.to_i < Spell.all.length
           spell = Spell.all[prompt_input.to_i - 1]
           Api.spell_info_call(spell)
-          print_spells(spell)
-        # elsif prompt_input == "number"
-
-        #   ##return information
-        #   ##display information
+          print_spell(spell)
+        elsif prompt_input == "list"
+          orig_input(@input)
         else
           puts "I do not understand...try again"
         end
@@ -28,11 +26,9 @@ class Cli
         prompt_input = gets.strip.downcase
       end
       puts "~The book vanishes as you close it leaving you feeling stronger in the magical arts~"
-          ##
-    #Api.spell_info_call(@prompt_input)
-
-
   end
+
+
 
   def orig_input(input)
     if input == ("y" || "yes") && (input != "n"|| "no")
@@ -50,15 +46,25 @@ class Cli
     end
   end
 
+
+
   def prompt_user
     puts " "
     puts "Enter a number to learn more about a spell; type list to see the list again, or type exit to close the Tome: "
     puts " "
   end
 
+
+
   def print_spell(spell)
-    puts "#{spell.name}"
+    puts "Name: #{spell.name}"
+    puts " "
     puts "#{spell.description}"
-    puts "#{spell.range}"
+    puts " "
+    puts "Range: #{spell.range}"
+    puts " "
+    puts "Components: #{spell.components}"
   end
+
+
 end
