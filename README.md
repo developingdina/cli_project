@@ -1,8 +1,5 @@
-# CliProject
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# Spell Directory
+Welcome to the Tome of Spells! This gem will help you list and look up details on all of the spells used in the D&D 5e game. All information is pulled from the https://www.dnd5eapi.co/ api and is updated accordingly.
 
 ## Installation
 
@@ -22,8 +19,11 @@ Or install it yourself as:
     $ gem install cli_project
 
 ## Usage
-
-TODO: Write usage instructions here
+Execute the following:
+```
+ruby ./bin/spells
+```
+Afterwards, follow the prompts to list all the spells and to find out more details about them.
 
 ## Development
 

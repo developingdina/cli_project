@@ -4,7 +4,7 @@ class Cli
 
   def run
     puts " "
-    puts "Welcome to the Tome of Knowledge"
+    puts "Welcome to the Tome of Spells"
     puts " "
     puts "Is it Magic you seek: y or n"
     @input = gets.strip.downcase
