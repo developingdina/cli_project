@@ -6,26 +6,25 @@ class Cli
     puts " "
     puts "Is it Magic you seek: y or n"
     @input = gets.strip.downcase
-#
     prompt_user if orig_input(@input)
     prompt_input = gets.strip.downcase
 
       while prompt_input != "exit"
-        if prompt_input.to_i.between?(1, Spell.all.length)
-          spell = Spell.all[prompt_input.to_i - 1]
-          Api.spell_info_call(spell)
-          print_spell(spell)
-        elsif prompt_input == "list"
-          Spell.all.each.with_index(1) do |spell, index|
-            puts "#{index}. #{spell.name}"
+          if prompt_input.to_i.between?(1, Spell.all.length)
+              spell = Spell.all[prompt_input.to_i - 1]
+              Api.spell_info_call(spell)
+              print_spell(spell)
+          elsif prompt_input == "list"
+              Spell.all.each.with_index(1) do |spell, index|
+              puts "#{index}. #{spell.name}"
+              end
+          else
+              puts "I do not understand...try again"
           end
-        else
-          puts "I do not understand...try again"
-        end
-        prompt_user
-        prompt_input = gets.strip.downcase
+              prompt_user
+              prompt_input = gets.strip.downcase
       end
-      puts "(As you close the Tome it vanishes leaving you feeling more powerful.)"
+          puts "(As you close the Tome it vanishes leaving you feeling more powerful.)"
     end
 
     def orig_input(input)
