@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/environment.rb"
+require_relative "../cli_project/lib/environment.rb"
 
-cli = Cli.new
-cli.run
+Cli.new.run
