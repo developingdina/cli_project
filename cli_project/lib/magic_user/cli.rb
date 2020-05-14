@@ -1,5 +1,3 @@
-##responsible for handling input FROM user and output TO user
-
 class Cli
 
   def run
@@ -13,7 +11,7 @@ class Cli
     prompt_input = gets.strip.downcase
 
       while prompt_input != "exit"
-        if prompt_input.to_i > 0 && prompt_input.to_i <= Spell.all.length
+        if prompt_input.to_i.between?(1, Spell.all.length)
           spell = Spell.all[prompt_input.to_i - 1]
           Api.spell_info_call(spell)
           print_spell(spell)
@@ -28,10 +26,7 @@ class Cli
         prompt_input = gets.strip.downcase
       end
       puts "(As you close the Tome it vanishes leaving you feeling more powerful.)"
-
     end
-
-
 
     def orig_input(input)
       if input == "y" || input == "yes"
@@ -49,15 +44,11 @@ class Cli
         end
     end
 
-
-
     def prompt_user
         puts " "
         puts "Enter a 'number' to learn more about a spell; type 'list' to see the list again, or type 'exit' to close the Tome: "
         puts " "
     end
-
-
 
     def print_spell(spell)
         puts "Name: #{spell.name}"
@@ -68,6 +59,5 @@ class Cli
         puts " "
         puts "Components: #{spell.components}"
     end
-
 
 end
