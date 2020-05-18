@@ -2,7 +2,7 @@ class Cli
 
   def run
     puts " "
-    puts "Welcome to the Tome of Spells"
+    puts "Welcome to the Tome of Spells:"
     puts " "
     puts "Is it Magic you seek: y or n"
     @input = gets.strip.downcase
@@ -57,6 +57,8 @@ class Cli
         puts "Range: #{spell.range}"
         puts " "
         puts "Components: #{spell.components}"
+        puts ""
+        puts "Duration: #{spell.duration}"
     end
 
 end

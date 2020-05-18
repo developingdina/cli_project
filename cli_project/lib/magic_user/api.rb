@@ -5,8 +5,8 @@ class Api
     response = Net::HTTP.get(URI(url))
     spell_info = JSON.parse(response)["results"]
 
-      spell_info.each do |spell_list|
-          Spell.new(name: spell_list["name"],index: spell_list["index"])
+      spell_info.each do |spell|
+          Spell.new(name: spell["name"], index: spell["index"])
       end
 
   end
