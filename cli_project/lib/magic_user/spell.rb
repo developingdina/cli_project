@@ -18,9 +18,11 @@ class Spell
     @@all
   end
 
-  def self.find_by_(input)
-    by_letter = self.all.select{|spells| spells.start_with?("input")}
+  def self.find_by(##a letter)
+    by_letter = self.all.select{|spells| spells.start_with?(##a letter)}
     by_letter
+    binding.pry
+
   end
 
 

@@ -18,6 +18,13 @@ class Cli
               Spell.all.each.with_index(1) do |spell, index|
               puts "#{index}. #{spell.name}"
               end
+          elsif prompt_input == ##a letter
+            Spell.find_by(##a letter)
+            binding.pry
+            ##takes letter input
+            ##finds all spells with that letter in Spell.all
+            ##returns spell list through api call
+            ##connected to other spell methods
           else
               puts "I do not understand...try again"
           end
@@ -45,7 +52,8 @@ class Cli
 
     def prompt_user
         puts " "
-        puts "Enter a 'number' to learn more about a spell; type 'list' to see the list again, or type 'exit' to close the Tome: "
+        puts "Enter a 'number' to learn more about a spell,'list' to see the list again, a 'letter'
+         to list spells by that letter, or type 'exit' to close the Tome: "
         puts " "
     end
 
