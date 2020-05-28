@@ -25,6 +25,9 @@ class Spell
         end
     puts "Choose a number to learn more:"
     input = gets.strip.downcase
+
+
+    
       if input.to_i.between?(1, by_letter.length)
         spell = by_letter[input.to_i - 1]
         Api.spell_info_call(spell)
