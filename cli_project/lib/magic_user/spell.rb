@@ -19,9 +19,8 @@ class Spell
   end
 
   def self.find_by_letter(prompt_input)
-    by_l = self.all.select do |s_obj| s_obj.index.start_with?(prompt_input)
+    self.all.select do |s_obj| s_obj.index.start_with?(prompt_input)
     end
-    by_l
   end
 
 
