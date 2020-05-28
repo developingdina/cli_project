@@ -19,18 +19,15 @@ class Cli
               puts "#{index}. #{spell.name}"
               end
           elsif prompt_input == "#{prompt_input}"
-            spell = Spell.find_by_letter(prompt_input)
-            print_spell(spell)
+            by_letter = Spell.find_by_letter(prompt_input)
+            by_letter.each.with_index(1) do |spell, index|
+              puts "#{index}. #{spell.name}"
+            end
             puts "Choose a number to learn more:"
-            num_input = gets.strip.downcase
-            binding.pry
-
-            Api.spell_info_call()
-            print_spell()
-            ##takes num_input and sends API call for new list
-            #binding.pry
-            ##returns spell list through api call
-            ##connected to other spell methods
+            input = gets.strip.to_i
+            spell = by_letter[input.to_i - 1]
+            Api.spell_info_call(spell)
+            print_spell(spell)
           else
               puts "I do not understand...try again"
           end

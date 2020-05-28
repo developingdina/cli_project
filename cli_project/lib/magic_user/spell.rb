@@ -22,7 +22,6 @@ class Spell
     by_l = self.all.select do |s_obj| s_obj.index.start_with?(prompt_input)
     end
     by_l
-    binding.pry
   end
 
 
