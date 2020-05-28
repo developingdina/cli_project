@@ -23,11 +23,15 @@ class Cli
             by_letter.each.with_index(1) do |spell, index|
               puts "#{index}. #{spell.name}"
             end
-            puts "Choose a number to learn more:"
-            input = gets.strip.to_i
-            spell = by_letter[input.to_i - 1]
-            Api.spell_info_call(spell)
-            print_spell(spell)
+                if by_letter.empty?
+                  puts "No spell starts with that letter.Try again:"
+                else
+                  puts "Choose a number to learn more:"
+                  input = gets.strip.to_i
+                  spell = by_letter[input.to_i - 1]
+                  Api.spell_info_call(spell)
+                  print_spell(spell)
+                end
           else
               puts "I do not understand...try again"
           end
