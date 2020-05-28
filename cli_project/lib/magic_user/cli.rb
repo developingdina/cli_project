@@ -19,11 +19,12 @@ class Cli
               puts "#{index}. #{spell.name}"
               end
           elsif prompt_input == "#{prompt_input}"
-            new_arr = Spell.find_by_letter(prompt_input)
-            binding.pry
-
+            spell = Spell.find_by_letter(prompt_input)
+            print_spell(spell)
             puts "Choose a number to learn more:"
             num_input = gets.strip.downcase
+            binding.pry
+
             Api.spell_info_call()
             print_spell()
             ##takes num_input and sends API call for new list

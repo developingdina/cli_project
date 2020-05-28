@@ -19,22 +19,10 @@ class Spell
   end
 
   def self.find_by_letter(prompt_input)
-    by_letter = self.all.select{|s_obj| s_obj.index.start_with?(prompt_input)}
-        by_letter.select.with_index(1) do |spell, index|
-            puts "#{index}. #{spell.name}"
-        end
-    puts "Choose a number to learn more:"
-    input = gets.strip.downcase
-
-
-    
-      if input.to_i.between?(1, by_letter.length)
-        spell = by_letter[input.to_i - 1]
-        Api.spell_info_call(spell)
-        print_spell(spell)
-      end
-      binding.pry
-
+    by_l = self.all.select do |s_obj| s_obj.index.start_with?(prompt_input)
+    end
+    by_l
+    binding.pry
   end
 
 
