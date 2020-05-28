@@ -18,9 +18,9 @@ class Cli
               Spell.all.each.with_index(1) do |spell, index|
               puts "#{index}. #{spell.name}"
               end
-          elsif prompt_input == ##a letter
-            Spell.find_by(##a letter)
-            binding.pry
+          elsif prompt_input == "#{prompt_input}"
+            Spell.find_by(prompt_input)
+
             ##takes letter input
             ##finds all spells with that letter in Spell.all
             ##returns spell list through api call
@@ -32,6 +32,8 @@ class Cli
               prompt_input = gets.strip.downcase
       end
           puts "(As you close the Tome it vanishes leaving you feeling more powerful.)"
+
+
     end
 
     def orig_input(input)
