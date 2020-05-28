@@ -19,10 +19,15 @@ class Cli
               puts "#{index}. #{spell.name}"
               end
           elsif prompt_input == "#{prompt_input}"
-            Spell.find_by(prompt_input)
+            new_arr = Spell.find_by_letter(prompt_input)
+            binding.pry
 
-            ##takes letter input
-            ##finds all spells with that letter in Spell.all
+            puts "Choose a number to learn more:"
+            num_input = gets.strip.downcase
+            Api.spell_info_call()
+            print_spell()
+            ##takes num_input and sends API call for new list
+            #binding.pry
             ##returns spell list through api call
             ##connected to other spell methods
           else
