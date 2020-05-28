@@ -24,9 +24,10 @@ class Cli
               puts "#{index}. #{spell.name}"
             end
                 if by_letter.empty?
-                  puts "No spell starts with that letter.Try again:"
+                  puts "No spell starts with that letter. Try again:"
                 else
                   puts "Choose a number to learn more:"
+                  puts " "
                   input = gets.strip.to_i
                   spell = by_letter[input.to_i - 1]
                   Api.spell_info_call(spell)
