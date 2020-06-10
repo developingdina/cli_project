@@ -4,4 +4,4 @@ gemspec
 gem "httparty"
 gem "json"
 gem "pry"
-gem "rake", ">= 12.3.3"
+gem "rake, >= 12.3.3"
