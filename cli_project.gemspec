@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{This gem will allow you to pull information about spells available in the D&D 5e version of the game.}
   spec.description   = %q{This gem uses the D&D API to pull relevent information about all the spells that a person can use in the 5e version of D&D. Spells may update along with the API.}
-  spec.homepage      = https://github.com/DKendle/D-D-Spell-Directory-5e
+  spec.homepage      = "https://github.com/DKendle/D-D-Spell-Directory"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = http://rubygems.org
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = https://github.com/DKendle/D-D-Spell-Directory-5e
-    spec.metadata["changelog_uri"] = https://github.com/DKendle/D-D-Spell-Directory-5e
+    spec.metadata["source_code_uri"] = "https://github.com/DKendle/D-D-Spell-Directory"
+    spec.metadata["changelog_uri"] = "https://github.com/DKendle/D-D-Spell-Directory"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
